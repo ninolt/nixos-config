@@ -77,14 +77,26 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      home-manager
+     pipewire
      waybar
      vim
      git
+     htop
      kitty
      firefox
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  xdg.portal = {
+    config.common.default = "*";
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
