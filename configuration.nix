@@ -15,10 +15,20 @@
      hyprland.enable = true;
   };
 
-  # Enabling GDM
-  services.xserver = {
-     enable = true;
-     displayManager.gdm.enable = true;
+  services = {
+     xserver = {
+       enable = true;
+       # Enabling GDM
+       displayManager.gdm.enable = true;
+     };
+
+     # Enabling Pipewire and ALSA
+     pipewire = {
+       enable = true;
+       alsa.enable = true;
+       alsa.support32Bit = true;
+       pulse.enable = true;
+     };
   };
 
   # Bootloader.
