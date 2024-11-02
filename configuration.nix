@@ -89,10 +89,8 @@
   environment.systemPackages = with pkgs; [
      home-manager
      pipewire
-     waybar
      vim
      git
-     htop
      kitty
      firefox
   ];
@@ -111,7 +109,10 @@
 
   home-manager.users.nino = { pkgs, ... }: {
     home.stateVersion = "24.05";
-    home.packages = [];
+    home.packages = with pkgs; [
+        htop
+        waybar
+    ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
