@@ -112,6 +112,7 @@
     home.packages = with pkgs; [
         htop
         waybar
+        rofi-wayland
     ];
   };
 
