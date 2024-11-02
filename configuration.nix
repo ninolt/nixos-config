@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Enabling hyprland
@@ -106,6 +107,11 @@
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
     ];
+  };
+
+  home-manager.users.nino = { pkgs, ... }: {
+    home.stateVersion = "24.05";
+    home.packages = [];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
