@@ -8,18 +8,15 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
     ];
 
-  # Enabling hyprland
-  programs = {
-     hyprland.enable = true;
-  };
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  security.polkit.enable = true;
 
   services = {
      xserver = {
        enable = true;
-       # Enabling GDM
        displayManager.gdm.enable = true;
      };
 
@@ -67,7 +64,6 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "fr";
-    variant = "";
   };
 
   # Configure console keymap
@@ -91,8 +87,6 @@
      pipewire
      vim
      git
-     kitty
-     firefox
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -102,17 +96,7 @@
     enable = true;
     wlr.enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
-    ];
-  };
-
-  home-manager.users.nino = { pkgs, ... }: {
-    home.stateVersion = "24.05";
-    home.packages = with pkgs; [
-        htop
-        waybar
-        rofi-wayland
     ];
   };
 
