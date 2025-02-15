@@ -3,14 +3,20 @@
     keyboard.layout = "fr";
 
     packages = with pkgs; [
-      firefox
+      # IHM
+      swaybg
+
+      # General app
       kitty
+
+      # User app
+      firefox
     ];
 
     username = "nino";
     homeDirectory = "/home/nino";
 
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
   
   wayland.windowManager.sway = {
@@ -28,7 +34,8 @@
       terminal = "kitty";
 
       startup = [
-        {command = "firefox";}
+        { command = "swaybg -m fill -i ./wallpapers/cherry-blossom.png"; }
+        { command = "firefox"; }
       ];
     };
   };
