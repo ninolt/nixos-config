@@ -15,9 +15,17 @@
   security.polkit.enable = true;
 
   services = {
-     xserver = {
+     xserver.enable = true;
+
+     greetd = {
        enable = true;
-       displayManager.gdm.enable = true;
+       
+       settings = {
+         default_session = {
+           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+           user = "nino";
+         };
+       };
      };
 
      # Enabling Pipewire and ALSA
@@ -90,15 +98,6 @@
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  xdg.portal = {
-    config.common.default = "*";
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
