@@ -3,9 +3,6 @@
     keyboard.layout = "fr";
 
     packages = with pkgs; [
-      # Utils
-      swaybg
-
       # General app
       kitty
 
@@ -39,7 +36,7 @@
       terminal = "kitty";
 
       startup = [
-        { command = "swaybg -m fill -i ./wallpapers/$(ls ./wallpapers/ | sort -R | head -n 1)"; }
+        { command = "swaymsg output \"*\" bg ${./wallpapers}/$(ls ${./wallpapers} | sort -R | head -n 1) fill"; }
         { command = "firefox"; }
       ];
 
