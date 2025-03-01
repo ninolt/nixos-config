@@ -3,6 +3,9 @@
     keyboard.layout = "fr";
 
     packages = with pkgs; [
+      # System app
+      brightnessctl
+
       # General app
       kitty
 
@@ -40,7 +43,16 @@
         { command = "firefox"; }
       ];
 
+      gaps.outer = 20;
+
+      window = {
+        titlebar = false;
+      };
+
       keybindings = lib.mkOptionDefault {
+        "XF86MonBrightnessDown" = "exec brightnessctl set 10%-";
+        "XF86MonBrightnessUp" = "exec brightnessctl set 10%+";
+
         "${modifier}+ampersand" = "workspace 1";
         "${modifier}+eacute" = "workspace 2";
         "${modifier}+quotedbl" = "workspace 3";
@@ -66,5 +78,11 @@
     };
   };
 
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+
+    waybar = {
+      enable = true;
+    };
+  };
 }
