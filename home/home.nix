@@ -96,17 +96,29 @@
           height = 30;
 
           modules-center = [ "sway/workspaces" ];
-          modules-right = [ "clock" ];
+          modules-right = [ "battery" "clock" ];
 
           "sway/workspaces" = {
             disable-scroll = true;
             all-outputs = true;
           };
 
+          "battery" = {
+            interval = 30;
+            states = {
+              "good" = 95;
+              "warning" = 30;
+              "critical" = 20;
+            };
+            format = "{capacity}%";
+          };
+
           "clock" = {
             interval = 5;
-            format = "{:%a %d | %H:%M}";
+            format = "{:%H:%M}";
             timezone = "Europe/Paris";
+            tooltip-format = "<tt>{calendar}</tt>";
+            calendar.format.today = "<b>{}</b>";
           };
         };
       };
