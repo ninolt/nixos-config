@@ -10,7 +10,7 @@
       kitty
 
       # User app
-      firefox
+      mullvad-browser
     ];
 
     username = "nino";
@@ -40,7 +40,7 @@
 
       startup = [
         { command = "swaymsg output \"*\" bg ${./wallpapers}/$(ls ${./wallpapers} | sort -R | head -n 1) fill"; }
-        { command = "firefox"; }
+        { command = "mullvad-browser"; }
       ];
 
       gaps = {
