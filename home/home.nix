@@ -43,11 +43,16 @@
         { command = "firefox"; }
       ];
 
-      gaps.outer = 20;
+      gaps = {
+        outer = 10;
+        inner = 20;
+      };
 
       window = {
         titlebar = false;
       };
+
+      bars = [ { command = "${pkgs.waybar}/bin/waybar"; } ];
 
       keybindings = lib.mkOptionDefault {
         "XF86MonBrightnessDown" = "exec brightnessctl set 10%-";
@@ -83,6 +88,28 @@
 
     waybar = {
       enable = true;
+
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "top";
+          height = 30;
+
+          modules-center = [ "sway/workspaces" ];
+          modules-right = [ "clock" ];
+
+          "sway/workspaces" = {
+            disable-scroll = true;
+            all-outputs = true;
+          };
+
+          "clock" = {
+            interval = 5;
+            format = "{:%a %d | %H:%M}";
+            timezone = "Europe/Paris";
+          };
+        };
+      };
     };
   };
 }
