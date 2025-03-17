@@ -3,14 +3,10 @@
     keyboard.layout = "fr";
 
     packages = with pkgs; [
-      # System app
       brightnessctl
-
-      # General app
       kitty
-
-      # User app
-      mullvad-browser
+      tor-browser
+      discord
     ];
 
     username = "nino";
@@ -40,7 +36,8 @@
 
       startup = [
         { command = "swaymsg output \"*\" bg ${./wallpapers}/$(ls ${./wallpapers} | sort -R | head -n 1) fill"; }
-        { command = "mullvad-browser"; }
+        { command = "${pkgs.librewolf}/bin/librewolf"; }
+        { command = "discord"; }
       ];
 
       gaps = {
@@ -53,6 +50,17 @@
       };
 
       bars = [ { command = "${pkgs.waybar}/bin/waybar"; } ];
+
+      assigns = {
+        "2" = [
+          { app_id = "librewolf"; }
+          { app_id = "Tor Browser"; }
+        ];
+
+        "3" = [
+          { app_id = "discord"; }
+        ];
+      };
 
       keybindings = lib.mkOptionDefault {
         "XF86MonBrightnessDown" = "exec brightnessctl set 10%-";
@@ -85,6 +93,19 @@
 
   programs = {
     home-manager.enable = true;
+
+    librewolf = {
+      enable = true;
+      languagePacks = [ "fr-FR" "en-GB" ];
+
+      settings = {
+        "webgl.disabled" = false;
+        "browser.theme.content-theme" = 0;
+        "browser.theme.toolbar-theme" = 0;
+        "privacy.clearOnShutdown.history" = false;
+        "privacy.clearOnShutdown.cookies" = false;
+      };
+    };
 
     waybar = {
       enable = true;
