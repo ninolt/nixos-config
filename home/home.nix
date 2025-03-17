@@ -63,8 +63,12 @@
       };
 
       keybindings = lib.mkOptionDefault {
-        "XF86MonBrightnessDown" = "exec brightnessctl set 10%-";
-        "XF86MonBrightnessUp" = "exec brightnessctl set 10%+";
+        "XF86MonBrightnessDown" = "exec --no-startup-id brightnessctl set 10%-";
+        "XF86MonBrightnessUp" = "exec --no-startup-id brightnessctl set 10%+";
+
+        "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%";
+        "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
 
         "${modifier}+ampersand" = "workspace 1";
         "${modifier}+eacute" = "workspace 2";
@@ -117,11 +121,17 @@
           height = 30;
 
           modules-center = [ "sway/workspaces" ];
-          modules-right = [ "battery" "clock" ];
+          modules-right = [ "pulseaudio" "battery" "clock" ];
 
           "sway/workspaces" = {
             disable-scroll = true;
             all-outputs = true;
+          };
+
+          "pulseaudio" = {
+            format = "{volume}%";
+            format-bluetooth = "{volume}%";
+            format-muted = "{volume}%";
           };
 
           "battery" = {
