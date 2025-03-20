@@ -94,6 +94,7 @@
      home-manager
      pipewire
      pulseaudio
+     unzip
      vim
      git
   ];
