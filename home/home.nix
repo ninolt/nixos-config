@@ -4,6 +4,8 @@
     ./wofi.nix
     ./waybar.nix
 
+    ./neovim.nix
+
     ./librewolf.nix
   ];
 
