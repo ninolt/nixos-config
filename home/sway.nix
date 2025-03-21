@@ -31,6 +31,8 @@
 
       window = {
         titlebar = false;
+
+        border = 0;
       };
 
       bars = [ { command = "${pkgs.waybar}/bin/waybar"; } ];
