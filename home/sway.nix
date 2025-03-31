@@ -37,6 +37,7 @@
 
       bars = [ { command = "${pkgs.waybar}/bin/waybar"; } ];
 
+      # Command for app_id : swaymsg -t get_tree
       assigns = {
         "2" = [
           { app_id = "librewolf"; }
@@ -45,6 +46,10 @@
 
         "3" = [
           { app_id = "discord"; }
+        ];
+
+        "5" = [
+          { app_id = "@joplin/app-desktop"; }
         ];
       };
 
