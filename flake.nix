@@ -9,22 +9,36 @@
       # Referencing our download of nixpkgs for home-manager
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvchad4nix = {
+      url = "github:nix-community/nix4nvchad";
+      # Referencing our download of nixpkgs for home-manager
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
   let
     system = "x86_64-linux";
+    lib = nixpkgs.lib;
+    pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+    extraSpecialArgs = { inherit system; inherit inputs; };
+    specialArgs = { inherit system; inherit inputs; };
   in
   {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
+    nixosConfigurations.nixos = lib.nixosSystem {
+      inherit specialArgs;
+
       modules = [
         ./configuration.nix
 
-        home-manager.nixosModules.home-manager
         {
+          nixpkgs.overlays = [ (final: prev: { nvchad = inputs.nvchad4nix.packages."${pkgs.system}".nvchad; }) ];
+        }
+
+        home-manager.nixosModules.home-manager {
           home-manager = {
+            inherit extraSpecialArgs;
             useGlobalPkgs = true;
             useUserPackages = true;
             users.nino = import ./home/home.nix;

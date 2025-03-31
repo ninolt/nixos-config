@@ -4,9 +4,10 @@
     ./wofi.nix
     ./waybar.nix
 
-    ./neovim.nix
+    ./nvim
 
     ./librewolf.nix
+    ./joplin.nix
   ];
 
   home = {
