@@ -8,6 +8,7 @@
 
     ./librewolf.nix
     ./joplin.nix
+    ./nextcloud.nix
   ];
 
   home = {
