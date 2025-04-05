@@ -20,6 +20,12 @@
       firefox
       tor-browser
       discord
+      ###
+      libreoffice-qt
+      hunspell
+      hunspellDicts.fr-any
+      hunspellDicts.en_GB-large
+      ###
     ];
 
     username = "nino";
