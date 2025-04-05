@@ -6,7 +6,6 @@
 
     ./dev
 
-    ./librewolf.nix
     ./joplin.nix
     ./nextcloud.nix
   ];
@@ -17,6 +16,8 @@
     packages = with pkgs; [
       brightnessctl
       kitty
+
+      firefox
       tor-browser
       discord
     ];
