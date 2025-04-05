@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvchad4nix = {
+    nix4nvchad = {
       url = "github:nix-community/nix4nvchad";
       # Referencing our download of nixpkgs for home-manager
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +33,7 @@
         ./configuration.nix
 
         {
-          nixpkgs.overlays = [ (final: prev: { nvchad = inputs.nvchad4nix.packages."${pkgs.system}".nvchad; }) ];
+          nixpkgs.overlays = [ (final: prev: { nvchad = inputs.nix4nvchad.packages."${pkgs.system}".nvchad; }) ];
         }
 
         home-manager.nixosModules.home-manager {

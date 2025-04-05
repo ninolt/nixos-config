@@ -4,7 +4,7 @@
     ./wofi.nix
     ./waybar.nix
 
-    ./nvim
+    ./dev
 
     ./librewolf.nix
     ./joplin.nix
