@@ -1,4 +1,14 @@
 { pkgs, lib, ...}: {
+  # Adding some power entries to wofi
+  home.file = {
+    ".local/share/applications/logout.desktop".source = ./logout.desktop;
+    ".local/share/icons/logout.png".source = ./logout.png;
+    ".local/share/applications/reboot.desktop".source = ./reboot.desktop;
+    ".local/share/icons/reboot.png".source = ./reboot.png;
+    ".local/share/applications/shutdown.desktop".source = ./shutdown.desktop;
+    ".local/share/icons/shutdown.png".source = ./shutdown.png;
+  };
+
   programs.wofi = {
     enable = true;
 

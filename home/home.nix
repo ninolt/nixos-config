@@ -1,7 +1,7 @@
 { pkgs, lib, ...}: {
   imports = [
     ./sway.nix
-    ./wofi.nix
+    ./wofi
     ./waybar.nix
 
     ./dev
