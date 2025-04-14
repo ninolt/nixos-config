@@ -26,12 +26,20 @@
       hunspellDicts.fr-any
       hunspellDicts.en_GB-large
       ###
+      kdePackages.okular
     ];
 
     username = "nino";
     homeDirectory = "/home/nino";
 
     stateVersion = "24.11";
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = "org.kde.okular.desktop";
+    };
   };
   
   programs.home-manager.enable = true;
