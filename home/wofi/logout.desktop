@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Logout
-Comment=Logout from the current session
-Exec="loginctl terminate-session ${XDG_SESSION_ID-}"
-Icon="${HOME}/.local/share/icons/logout.png"
-Terminal=false
-Type=Application
-Categories=System
-

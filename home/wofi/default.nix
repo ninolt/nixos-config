@@ -1,12 +1,35 @@
-{ pkgs, lib, ...}: {
+{ config, pkgs, lib, ...}: {
   # Adding some power entries to wofi
   home.file = {
-    ".local/share/applications/logout.desktop".source = ./logout.desktop;
-    ".local/share/icons/logout.png".source = ./logout.png;
-    ".local/share/applications/reboot.desktop".source = ./reboot.desktop;
-    ".local/share/icons/reboot.png".source = ./reboot.png;
-    ".local/share/applications/shutdown.desktop".source = ./shutdown.desktop;
-    ".local/share/icons/shutdown.png".source = ./shutdown.png;
+    "${config.home.homeDirectory}/.local/share/icons/logout.png".source = ./logout.png;
+    "${config.home.homeDirectory}/.local/share/icons/reboot.png".source = ./reboot.png;
+    "${config.home.homeDirectory}/.local/share/icons/shutdown.png".source = ./shutdown.png;
+  };
+
+  xdg.desktopEntries = {
+    logout = {
+      name = "Logout";
+      exec = ''sh -c "loginctl terminate-session \\$XDG_SESSION_ID"'';
+      icon = "${config.home.homeDirectory}/.local/share/icons/logout.png";
+      terminal = false;
+      categories = [ "System" ];
+    };
+
+    shutdown = {
+      name = "Shutdown";
+      exec = "systemctl poweroff";
+      icon = "${config.home.homeDirectory}/.local/share/icons/shutdown.png";
+      terminal = false;
+      categories = [ "System" ];
+    };
+
+    reboot = {
+      name = "Reboot";
+      exec = "systemctl reboot";
+      icon = "${config.home.homeDirectory}/.local/share/icons/reboot.png";
+      terminal = false;
+      categories = [ "System" ];
+    };
   };
 
   programs.wofi = {

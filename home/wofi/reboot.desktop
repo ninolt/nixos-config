@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Reboot
-Comment=Reboot the system
-Exec=systemctl reboot
-Icon="${HOME}/.local/share/icons/reboot.png"
-Terminal=false
-Type=Application
-Categories=System
-

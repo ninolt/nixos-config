@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Shutdown
-Comment=Shutdown the system
-Exec=systemctl poweroff
-Icon="${HOME}/.local/share/icons/shutdown.png"
-Terminal=false
-Type=Application
-Categories=System
-
