@@ -2,6 +2,9 @@
   wayland.windowManager.sway = {
     enable = true;
 
+    package = pkgs.swayfx;
+    checkConfig = false;
+
     extraConfig = ''
       input * {
         xkb_layout "fr"
@@ -11,6 +14,12 @@
         natural_scroll enabled
         tap enabled
       }
+
+      shadows enable
+      shadow_blur_radius 40
+      shadow_color #00000088
+
+      corner_radius 15
     '';
 
     config = rec {
@@ -23,6 +32,8 @@
         { command = "firefox"; }
         { command = "discord"; }
       ];
+
+      defaultWorkspace = "workspace 1";
 
       gaps = {
         outer = 10;

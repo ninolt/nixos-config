@@ -15,6 +15,12 @@
       # Referencing our download of nixpkgs for home-manager
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    swayfx = {
+      url = "github:WillPower3309/swayfx";
+      # Referencing our download of nixpkgs for home-manager
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
