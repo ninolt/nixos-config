@@ -15,11 +15,25 @@
         tap enabled
       }
 
+      client.unfocused #928374 #928374 #ffffff #928374 #928374
+      client.focused #fbf1c7 #fbf1c7 #ffffff #fbf1c7 #fbf1c7
+
       shadows enable
-      shadow_blur_radius 40
-      shadow_color #00000088
+      shadow_blur_radius 30
+      shadow_color #000000ee
 
       corner_radius 15
+
+      set $low_opacity 0.8
+      set $medium_opacity 0.85
+      set $high_opacity 0.95
+
+      blur enable
+      blur_radius 4
+
+      for_window [app_id="discord"] opacity $medium_opacity
+      for_window [app_id="@joplin/app-desktop"] opacity $medium_opacity
+      for_window [app_id="kitty"] opacity $low_opacity
     '';
 
     config = rec {
@@ -43,7 +57,7 @@
       window = {
         titlebar = false;
 
-        border = 0;
+        border = 1;
       };
 
       bars = [ { command = "${pkgs.waybar}/bin/waybar"; } ];
