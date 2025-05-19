@@ -39,7 +39,7 @@
     config = rec {
       modifier = "Mod4";
 
-      terminal = "kitty";
+      terminal = "alacritty";
 
       startup = [
         { command = "swaymsg output \"*\" bg ${./wallpapers}/$(ls ${./wallpapers} | sort -R | head -n 1) fill"; }

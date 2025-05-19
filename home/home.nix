@@ -15,7 +15,7 @@
 
     packages = with pkgs; [
       brightnessctl
-      kitty
+      alacritty
 
       firefox
       tor-browser
@@ -28,6 +28,11 @@
       ###
       kdePackages.okular
     ];
+
+    sessionVariables = {
+      EDITOR = "nvim";
+      TERMINAL = "alacritty";
+    };
 
     username = "nino";
     homeDirectory = "/home/nino";
