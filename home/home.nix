@@ -2,6 +2,7 @@
   imports = [
     ./sway.nix
     ./wofi
+    ./alacritty
     ./waybar.nix
 
     ./dev
