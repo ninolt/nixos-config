@@ -33,7 +33,7 @@
 
       for_window [app_id="discord"] opacity $medium_opacity
       for_window [app_id="@joplin/app-desktop"] opacity $medium_opacity
-      for_window [app_id="kitty"] opacity $low_opacity
+      for_window [app_id="Alacritty"] opacity $low_opacity
     '';
 
     config = rec {
