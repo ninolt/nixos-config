@@ -111,6 +111,7 @@
      home-manager
      pipewire
      pulseaudio
+     gnumake
      unzip
      wget
      vim
