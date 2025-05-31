@@ -1,4 +1,10 @@
-{ pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }: {
+  # Linking cursor theme to adequate directory
+  home.file = {
+    "${config.home.homeDirectory}/.icons/capitaine-cursors-gruvbox/index.theme".source = ./index.theme;
+    "${config.home.homeDirectory}/.icons/capitaine-cursors-gruvbox/cursors".source = ./cursors;
+  };
+
   wayland.windowManager.sway = {
     enable = true;
 
@@ -34,6 +40,8 @@
       for_window [app_id="discord"] opacity $medium_opacity
       for_window [app_id="@joplin/app-desktop"] opacity $medium_opacity
       for_window [app_id="Alacritty"] opacity $low_opacity
+
+      seat * xcursor_theme capitaine-cursors-gruvbox
     '';
 
     config = rec {
@@ -42,7 +50,7 @@
       terminal = "alacritty";
 
       startup = [
-        { command = "swaymsg output \"*\" bg ${./wallpapers}/$(ls ${./wallpapers} | sort -R | head -n 1) fill"; }
+        { command = "swaymsg output \"*\" bg ${../wallpapers}/$(ls ${../wallpapers} | sort -R | head -n 1) fill"; }
         { command = "firefox"; }
         { command = "discord"; }
       ];
