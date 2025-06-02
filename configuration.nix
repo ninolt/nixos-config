@@ -94,12 +94,18 @@
   # Configure console keymap
   console.keyMap = "fr";
 
+  # Enable zsh systemwide
+  programs.zsh.enable = true;
+  # For completion to work
+  environment.pathsToLink = [ "/share/zsh" ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nino = {
     isNormalUser = true;
     description = "nino";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    shell = pkgs.zsh;
   };
 
   # Allow unfree packages

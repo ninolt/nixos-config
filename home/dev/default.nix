@@ -11,6 +11,6 @@
     '';
   };
 
-  programs.zsh.enable = true;
+  programs.zsh.shellAliases.vim = "nvim";
 }
 

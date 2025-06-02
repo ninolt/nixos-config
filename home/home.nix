@@ -1,6 +1,8 @@
 { pkgs, lib, ...}: {
   imports = [
     ./sway
+    ./zsh.nix
+    ./fastfetch
     ./wofi
     ./alacritty
     ./waybar.nix
