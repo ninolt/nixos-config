@@ -19,6 +19,7 @@
     packages = with pkgs; [
       brightnessctl
       alacritty
+      htop
 
       firefox
       tor-browser
