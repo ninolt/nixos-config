@@ -4,6 +4,7 @@
     ./zsh.nix
     ./fastfetch
     ./wofi
+    ./dunst.nix
     ./alacritty
     ./waybar.nix
 
