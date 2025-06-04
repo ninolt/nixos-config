@@ -11,7 +11,7 @@
       max_icon_size = 64;
       vertical_alignment = "top";
 
-      font = "Monospace 10";
+      font = "Hark Nerd Mono 10";
       line_height = 2;
       padding = 12;
       horizontal_padding = 12;
