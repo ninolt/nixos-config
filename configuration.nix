@@ -108,6 +108,11 @@
     shell = pkgs.zsh;
   };
 
+  # Fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.hack
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

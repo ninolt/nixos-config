@@ -7,6 +7,10 @@
       };
 
       font = {
+        normal = {
+          family = "Hack Nerd Font";
+          style = "Regular";
+        };
         size = 14.00;
       };
 
