@@ -3,7 +3,9 @@
     enable = true;
     settings = {
       general = {
-        import = [ "/home/nino/.config/nixos/home/alacritty/gruvbox_dark.toml" ];
+        import = [
+	  "/home/nino/.config/nixos/home/alacritty/gruvbox_dark.toml"
+	];
       };
 
       font = {
@@ -11,7 +13,7 @@
           family = "Hack Nerd Font";
           style = "Regular";
         };
-        size = 14.00;
+        size = 16.00;
       };
 
       window = {

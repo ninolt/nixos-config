@@ -1,16 +1,36 @@
-{ inputs, pkgs, lib, ... }: {
-  imports = [ inputs.nix4nvchad.homeManagerModule ];
-
-  programs.nvchad = {
+{ pkgs, lib, ... }: {
+  programs.neovim = {
     enable = true;
 
-    extraPlugins = ''
-      return {
-        {"Myriad-Dreamin/tinymist"}
-      }
-    '';
-  };
+    viAlias = true;
+    vimAlias = true;
 
-  programs.zsh.shellAliases.vim = "nvim";
+    plugins = [
+      pkgs.vimPlugins.gruvbox
+      {
+        plugin = pkgs.vimPlugins.lightline-vim;
+	    config = "let g:lightline = {'colorscheme':'gruvbox',}";
+      }
+
+      pkgs.vimPlugins.nvim-lspconfig
+	  pkgs.vimPlugins.nvim-cmp
+    ];
+
+    extraConfig = ''
+      set number relativenumber
+      set colorcolumn=80,120
+
+      set termguicolors
+      colorscheme gruvbox
+      set noshowmode
+
+      set shiftwidth=4
+      set tabstop=4
+    '';
+
+	extraLuaConfig = ''
+	  vim.lsp.enable('pylsp')
+	'';
+  };
 }
 
