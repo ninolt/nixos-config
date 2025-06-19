@@ -10,9 +10,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+	agenix = {
+      url = "github:ryantm/agenix";
+      # Agenix's now references to our download of nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+      # Disable darwin deps (dedicated to MacOS)
+      inputs.darwin.follows = "";
+    };
+
+	scalpel = {
+      url = "github:polygon/scalpel";
+      # Referencing our download of nixpkgs for scalpel
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     swayfx = {
       url = "github:WillPower3309/swayfx";
-      # Referencing our download of nixpkgs for home-manager
+      # Referencing our download of nixpkgs for swayfx
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -31,6 +45,9 @@
 
       modules = [
         ./configuration.nix
+
+		inputs.agenix.nixosModules.default
+		inputs.scalpel.nixosModules.scalpel
 
         home-manager.nixosModules.home-manager {
           home-manager = {

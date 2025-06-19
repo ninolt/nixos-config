@@ -10,6 +10,7 @@
 
     ./dev
 
+	./email
     ./joplin.nix
     ./nextcloud.nix
   ];

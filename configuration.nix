@@ -11,6 +11,9 @@
 
       # Development projects and environment
       ./dev
+
+	  # Tool for putting secrets at runtime from files
+	  ./secrets/scalpel.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
