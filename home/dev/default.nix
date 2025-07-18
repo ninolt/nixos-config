@@ -1,4 +1,9 @@
 { pkgs, lib, ... }: {
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+  };
+
   programs.neovim = {
     enable = true;
 
