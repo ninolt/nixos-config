@@ -13,7 +13,7 @@
       ./dev
 
 	  # Tool for putting secrets at runtime from files
-	  ./secrets/scalpel.nix
+	  # ./secrets/scalpel.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -42,6 +42,14 @@
        pulse.enable = true;
      };
   };
+
+  # Auto unlock of GNOME Keyring
+  security.pam.services = {
+    login.enableGnomeKeyring = true;
+    greetd.enableGnomeKeyring = true;
+    sway.enableGnomeKeyring = true;
+  };
+
 
   virtualisation.containers.enable = true;
 
