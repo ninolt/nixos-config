@@ -10,7 +10,7 @@
 
     ./dev
 
-	./email
+	# ./email
     ./joplin.nix
     ./nextcloud.nix
   ];
@@ -22,6 +22,8 @@
       brightnessctl
       alacritty
       htop
+	  nmap
+	  busybox
 
       firefox
       tor-browser

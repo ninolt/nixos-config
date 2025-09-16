@@ -50,7 +50,7 @@
       terminal = "alacritty";
 
       startup = [
-        { command = "swaymsg output \"*\" bg ${../wallpapers}/$(ls ${../wallpapers} | sort -R | head -n 1) fill"; }
+        { command = "swaymsg output \"*\" bg ${../wallpapers}/$(ls ${../wallpapers} | shuf | head -n 1) fill"; }
         { command = "firefox"; }
         { command = "discord"; }
       ];
