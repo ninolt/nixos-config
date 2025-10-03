@@ -18,6 +18,9 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Enabling dynamically linked executables
+  programs.nix-ld.enable = true;
+
   security.polkit.enable = true;
 
   services = {
