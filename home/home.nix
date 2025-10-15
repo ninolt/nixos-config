@@ -35,6 +35,7 @@
       hunspellDicts.en_GB-large
       ###
       kdePackages.okular
+	  kdePackages.kleopatra
     ];
 
     sessionVariables = {

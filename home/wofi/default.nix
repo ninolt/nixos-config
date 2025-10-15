@@ -4,6 +4,7 @@
     "${config.home.homeDirectory}/.local/share/icons/logout.png".source = ./logout.png;
     "${config.home.homeDirectory}/.local/share/icons/reboot.png".source = ./reboot.png;
     "${config.home.homeDirectory}/.local/share/icons/shutdown.png".source = ./shutdown.png;
+    "${config.home.homeDirectory}/.local/share/icons/kleopatra.png".source = ./kleopatra.png;
   };
 
   xdg.desktopEntries = {
@@ -29,6 +30,15 @@
       icon = "${config.home.homeDirectory}/.local/share/icons/reboot.png";
       terminal = false;
       categories = [ "System" ];
+    };
+
+	"org.kde.kleopatra" = {
+      name = "Kleopatra";
+      exec = "kleopatra";
+      icon = "${config.home.homeDirectory}/.local/share/icons/kleopatra.png";
+	  comment = "Certificate manager and cryptography app";
+	  type = "Application";
+      categories = [ "Qt" "KDE" "Utility" ];
     };
   };
 
