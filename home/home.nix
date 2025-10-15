@@ -28,6 +28,7 @@
       firefox
       tor-browser
       discord
+	  gimp3
       ###
       libreoffice-qt
       hunspell
