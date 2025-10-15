@@ -1,23 +1,39 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
-	age.secrets = {
-		email_private_name.path = ../../secrets/email_private_name.age;
-		email_private_address.path = ../../secrets/email_private_address.age;
-		email_private_signature.path = ../../secrets/email_private_signature.age;
+	imports = [ inputs.agenix.homeManagerModules.default ];
+
+	age.secrets.email_private_name = {
+	    file = ../../secrets/email_private_name.age;
 	};
 
-	accounts.email.accounts = [
-		{
-			name = "private";
+	age.secrets.email_private_address = {
+		file = ../../secrets/email_private_address.age;
+	};
+
+	age.secrets.email_private_signature = {
+		file = ../../email_private_signature.age;
+	};
+
+	accounts.email.accounts = {
+		"private" = {
 			thunderbird.enable = true;
-			realName = "!!EMAIL_PRIVATE_NAME!!";
-			address = "!!EMAIL_PRIVATE_ADDRESS!!";
+			primary = true;
+			realName = builtins.readFile config.age.secrets.email_private_name.path;
+			address = builtins.readFile config.age.secrets.email_private_address.path;
 			signature = {
-				text = "!!EMAIL_PRIVATE_SIGNATURE!!";
+				text = builtins.readFile config.age.secrets.email_private_signature.path;
 				showSignature = "append";
 			};
-		}
-	];
+		};
+	};
 
-	programs.thunderbird.enable = true;
+	programs.thunderbird = {
+		enable = true;
+		profiles."nino" = {
+			isDefault = true;
+			accountsOrder = [
+				"private"
+			];
+		};
+	};
 }
