@@ -12,8 +12,7 @@
       # Development projects and environment
       ./dev
 
-	  # Tool for putting secrets at runtime from files
-	  # ./secrets/scalpel.nix
+	  ./system.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -25,6 +24,8 @@
 
   services = {
      xserver.enable = true;
+
+	 openssh.enable = true;
 
      greetd = {
        enable = true;

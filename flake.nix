@@ -18,12 +18,6 @@
       inputs.darwin.follows = "";
     };
 
-	scalpel = {
-      url = "github:polygon/scalpel";
-      # Referencing our download of nixpkgs for scalpel
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     swayfx = {
       url = "github:WillPower3309/swayfx";
       # Referencing our download of nixpkgs for swayfx
@@ -47,7 +41,6 @@
         ./configuration.nix
 
 		inputs.agenix.nixosModules.default
-		inputs.scalpel.nixosModules.scalpel
 
         home-manager.nixosModules.home-manager {
           home-manager = {

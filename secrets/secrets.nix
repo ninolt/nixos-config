@@ -9,4 +9,8 @@ in
   "email_private_address.age".publicKeys = users ++ systems;
   "email_private_name.age".publicKeys = users ++ systems;
   "email_private_signature.age".publicKeys = users ++ systems;
+
+  "vps_domain.age".publicKeys = users ++ systems;
+
+  "ntfy_token.age".publicKeys = users ++ systems;
 }
