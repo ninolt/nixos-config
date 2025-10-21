@@ -23,7 +23,7 @@
  	systemd.services.system-reboot-ntfy.serviceConfig = {
 		User = "nino";
   		ExecStart = ''
-    		${pkgs.bash}/bin/bash -c '${pkgs.curl}/bin/curl https://ntfy.$(cat ${config.age.secrets.vps_domain.path})/main -d "Your NixOS laptop has been up for more than 3 days. Time for a reboot ?" -H "Authorization: Bearer $(cat ${config.age.secrets.ntfy_token.path})" -H "Tags: sleepy"'
+    		${pkgs.bash}/bin/bash -c '${pkgs.curl}/bin/curl https://ntfy.$(cat ${config.age.secrets.vps_domain.path})/main -d "Your NixOS laptop has been up for more than 3 days. Time for a reboot ?" -H "Authorization: Bearer $(cat ${config.age.secrets.ntfy_token.path})" -H "Tags: sleepy" -H "Title: NixOS Laptop"'
   		'';
 	};
 }
