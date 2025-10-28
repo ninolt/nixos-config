@@ -19,6 +19,8 @@
 
       pkgs.vimPlugins.nvim-lspconfig
 	  pkgs.vimPlugins.nvim-cmp
+	  pkgs.vimPlugins.vim-flog
+	  pkgs.vimPlugins.vim-fugitive # Dependency of vim-flog
     ];
 
     extraConfig = ''
