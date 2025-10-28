@@ -114,11 +114,14 @@
   # For completion to work
   environment.pathsToLink = [ "/share/zsh" ];
 
+  # Enable ADB
+  programs.adb.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nino = {
     isNormalUser = true;
     description = "nino";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
