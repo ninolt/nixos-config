@@ -22,10 +22,27 @@
 
   security.polkit.enable = true;
 
+  hardware.printers = {
+    ensurePrinters = [
+	  {
+	    name = "Brother_HL-2030";
+	    location = "Home";
+	    deviceUri = "usb://Brother/HL-2030%20series?serial=G8J955968";
+		model = "drv:///brlaser.drv/br2030.ppd";
+	    ppdOptions.PageSize = "A4";
+	  }
+	];
+  };
+
   services = {
      xserver.enable = true;
 
 	 openssh.enable = true;
+
+	 printing = {
+	 	enable = true;
+		drivers = [ pkgs.brlaser ];
+	 };
 
      greetd = {
        enable = true;
