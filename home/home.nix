@@ -13,6 +13,7 @@
 	# ./email
     ./joplin.nix
     ./nextcloud.nix
+	./firefox
   ];
 
   home = {
@@ -25,7 +26,6 @@
 	  nmap
 	  busybox
 
-      firefox
       tor-browser
       discord
 	  gimp3
