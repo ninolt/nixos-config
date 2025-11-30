@@ -29,6 +29,7 @@
       tor-browser
       discord
 	  gimp3
+	  tenacity
       ###
       libreoffice-qt
       hunspell
