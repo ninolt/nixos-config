@@ -28,6 +28,7 @@
 
       tor-browser
       discord
+	  signal-desktop
 	  gimp3
 	  tenacity
       ###

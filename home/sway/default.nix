@@ -79,6 +79,7 @@
 
         "3" = [
           { app_id = "discord"; }
+		  { app_id = "signal"; }
         ];
 
         "5" = [
