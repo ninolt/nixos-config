@@ -22,6 +22,8 @@
 
   security.polkit.enable = true;
 
+  services.upower.enable = true;
+
   hardware.printers = {
     ensurePrinters = [
 	  {
