@@ -23,6 +23,12 @@
       # Referencing our download of nixpkgs for swayfx
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+	spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      # Referencing our download of nixpkgs for spicetify-nix
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:

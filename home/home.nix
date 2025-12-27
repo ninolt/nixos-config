@@ -14,6 +14,7 @@
     ./joplin.nix
     ./nextcloud.nix
 	./firefox
+	./spotify.nix
   ];
 
   home = {

@@ -40,6 +40,7 @@
       for_window [app_id="discord"] opacity $medium_opacity
       for_window [app_id="@joplin/app-desktop"] opacity $medium_opacity
       for_window [app_id="Alacritty"] opacity $low_opacity
+	  for_window [app_id="spotify"] opacity $low_opacity
 
       seat * xcursor_theme capitaine-cursors-gruvbox
     '';
@@ -53,6 +54,7 @@
         { command = "swaymsg output \"*\" bg ${../wallpapers}/$(ls ${../wallpapers} | shuf | head -n 1) fill"; }
         { command = "firefox"; }
         { command = "discord"; }
+		{ command = "spotify"; }
       ];
 
       defaultWorkspace = "workspace 1";
@@ -81,6 +83,10 @@
           { app_id = "discord"; }
 		  { app_id = "signal"; }
         ];
+
+		"4" = [
+		  { app_id = "spotify"; }
+		];
 
         "5" = [
           { app_id = "@joplin/app-desktop"; }
