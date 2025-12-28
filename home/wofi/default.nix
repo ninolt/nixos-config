@@ -56,80 +56,79 @@
     };
 
     style = ''
-      @define-color bg #3c302f;
-      @define-color bg-alt #504945;
+	  @define-color bg rgba(60, 48, 47, 0.6);
       @define-color fg #fbf1c7;
-      @define-color fg-alt #d5c4a1;
-
+      @define-color selection-bg #fbf1c7;
+      @define-color selection-fg #3c302f;
+  
       * {
-        background-color: @bg;
-
-        border: 0;
+        background-color: transparent;
+        border: none;
         margin: 0;
         padding: 0;
+        font-family: "JetBrains Mono";
       }
-
+  
       *:focus {
         outline: none;
         box-shadow: none;
       }
-
+  
       #window {
-        border-radius: 10px;
-        font-family: "JetBrains Mono";
+        background-color: transparent;
       }
-
+  
       #outer-box {
-        margin: 20px;
-        border: none;
-        border-radius: 10px;
-        background: @bg;
+        padding: 20px;
+        border-radius: 15px;
+		background: radial-gradient(
+		  circle, 
+          rgba(60, 48, 47, 0.95) 0%,
+		  rgba(60, 48, 47, 0.80) 30%,
+          rgba(60, 48, 47, 0.40) 60%,
+          rgba(60, 48, 47, 0.15) 85%,
+          rgba(60, 48, 47, 0.0) 100%
+        );
       }
-
+  
       #input {
         border: 3px solid @fg;
         border-radius: 10px;
-        padding: 5px;
-        color: @fg;
-      }
-
-      #input image {
-        margin: 5px;
-      }
-
-      #input:focus image  {
-        color: @fg;
-      }
-
-      #inner-box {
-        margin: 20px 0;
-      }
-
-      #entry {
         padding: 8px;
-        color: @fg-alt;
-        border: none;
-        background: @bg;
+        color: @fg;
+        margin-bottom: 10px;
       }
-
-      #entry:selected {
+  
+      #input image {
+        margin-right: 10px;
+        color: @fg;
+      }
+  
+      #inner-box {
+        margin: 10px 0;
+      }
+  
+      #entry {
+        padding: 10px;
         border-radius: 10px;
-        background: @fg;
-        border: none;
+        color: @fg;
       }
-
+  
+      #entry:selected {
+        background-color: @selection-bg;
+      }
+  
+      #entry:selected #text {
+        color: @selection-fg;
+      }
+  
       #entry:selected #img {
-        background: @fg;
+        background-color: transparent;
       }
-
+  
       #text {
         padding: 0 10px;
         color: @fg;
-      }
-
-      #text:selected {
-        background: @fg;
-        color: @bg;
       }
     '';
   };

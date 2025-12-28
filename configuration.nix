@@ -165,6 +165,7 @@
      wget
      vim
      git
+	 jq
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

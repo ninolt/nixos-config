@@ -26,6 +26,8 @@
       htop
 	  nmap
 	  busybox
+	  wtype # For typing in Firefox's search bar
+	  wofi-emoji
 
       tor-browser
       discord

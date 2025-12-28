@@ -37,6 +37,8 @@
       blur enable
       blur_radius 4
 
+	  layer_effects "wofi" blur enable;	corner_radius 15
+
       for_window [app_id="discord"] opacity $medium_opacity
       for_window [app_id="@joplin/app-desktop"] opacity $medium_opacity
       for_window [app_id="Alacritty"] opacity $low_opacity
@@ -102,6 +104,10 @@
         "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
 
         "${modifier}+d" = "exec --no-startup-id wofi --show drun";
+		"${modifier}+Mod1+e" = ''exec wofi-emoji --style <(echo '#text { font-size: 40px; }')'';
+
+		"${modifier}+s" = ''exec swaymsg [app_id="firefox"] focus && wtype -M ctrl t -m ctrl && sleep 0.05 && wtype "% "'';
+        "${modifier}+e" = ''exec swaymsg [app_id="firefox"] focus && wtype -M ctrl t -m ctrl'';
 
         "${modifier}+ampersand" = "workspace 1";
         "${modifier}+eacute" = "workspace 2";
