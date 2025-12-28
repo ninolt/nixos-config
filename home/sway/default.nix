@@ -56,7 +56,6 @@
         { command = "swaymsg output \"*\" bg ${../wallpapers}/$(ls ${../wallpapers} | shuf | head -n 1) fill"; }
         { command = "firefox"; }
         { command = "discord"; }
-		{ command = "spotify"; }
       ];
 
       defaultWorkspace = "workspace 1";
