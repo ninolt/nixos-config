@@ -34,6 +34,7 @@
 	  signal-desktop
 	  gimp3
 	  tenacity
+	  eduvpn-client
       ###
       libreoffice-qt
       hunspell
