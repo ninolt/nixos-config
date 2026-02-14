@@ -1,4 +1,6 @@
 { pkgs, lib, ... }: {
+  home.packages = [ pkgs.github-copilot-cli ];
+
   programs.git = {
     enable = true;
     lfs.enable = true;
