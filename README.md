@@ -1,10 +1,10 @@
-# NixOS Configuration
+# ❄️ NixOS Configuration
 
 My personal NixOS configuration for laptop reproducibility and declarative system management.
 
 ## What is NixOS?
 
-[❄️ NixOS](https://nixos.org/) is a Linux distribution built on top of the [Nix package manager](https://nixos.org/manual/nix/stable/). It takes a **declarative** approach to system configuration:
+[NixOS](https://nixos.org/) is a Linux distribution built on top of the [Nix package manager](https://nixos.org/manual/nix/stable/). It takes a **declarative** approach to system configuration:
 
 - **Declarative**: Your entire system—packages, settings, services, dotfiles—is defined in configuration files (primarily `configuration.nix`)
 - **Reproducible**: Given the same configuration files, you'll get identical systems every time

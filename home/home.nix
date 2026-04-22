@@ -17,6 +17,10 @@
 	./spotify.nix
   ];
 
+  services = {
+	kdeconnect.enable = true;
+  };
+
   home = {
     keyboard.layout = "fr";
 
