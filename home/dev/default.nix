@@ -1,5 +1,5 @@
 { pkgs, lib, ... }: {
-  home.packages = [ pkgs.github-copilot-cli ];
+  home.packages = [ pkgs.opencode ];
 
   programs.git = {
     enable = true;
