@@ -39,7 +39,6 @@
 	  gimp3
 	  tenacity
 	  vlc
-	  eduvpn-client
       ###
       libreoffice-qt
       hunspell

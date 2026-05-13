@@ -141,14 +141,11 @@
   # For completion to work
   environment.pathsToLink = [ "/share/zsh" ];
 
-  # Enable ADB
-  programs.adb.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nino = {
     isNormalUser = true;
     description = "nino";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
@@ -164,16 +161,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     home-manager
-	 podman-compose
-     pipewire
-     pulseaudio
-     gnumake
-     unzip
-     wget
-     vim
-     git
-	 jq
+    home-manager
+    podman-compose
+    pipewire
+    pulseaudio
+    gnumake
+    unzip
+    wget
+    vim
+    git
+    jq
+    wireguard-tools
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
