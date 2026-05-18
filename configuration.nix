@@ -36,10 +36,18 @@
 	];
   };
 
+  hardware.bluetooth = {
+  	enable = true;
+  	powerOnBoot = true;
+	settings.General.Experimental = true;
+  };
+
   services = {
      xserver.enable = true;
 
 	 openssh.enable = true;
+
+	 blueman.enable = true;
 
 	 tailscale.enable = true;
 
