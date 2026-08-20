@@ -105,6 +105,8 @@
         "${modifier}+d" = "exec --no-startup-id wofi --show drun";
 		"${modifier}+Mod1+e" = ''exec wofi-emoji --style <(echo '#text { font-size: 40px; }')'';
 
+        "${modifier}+Shift+s" = ''exec grim -g "$(slurp)" - | wl-copy'';
+
 		"${modifier}+s" = ''exec swaymsg [app_id="firefox"] focus && wtype -M ctrl t -m ctrl && sleep 0.05 && wtype "% "'';
         "${modifier}+e" = ''exec swaymsg [app_id="firefox"] focus && wtype -M ctrl t -m ctrl'';
 

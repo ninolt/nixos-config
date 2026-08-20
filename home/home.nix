@@ -11,7 +11,7 @@
     ./dev
 
 	# ./email
-    ./joplin.nix
+    ./joplin
     ./nextcloud.nix
 	./firefox
 	./spotify.nix
@@ -29,9 +29,16 @@
       alacritty
       htop
 	  nmap
-	  busybox
+      (busybox.override {
+        extraConfig = "CONFIG_HOSTNAME n";
+      })
 	  wtype # For typing in Firefox's search bar
 	  wofi-emoji
+
+	  # For screenshots
+	  grim
+	  slurp
+	  wl-clipboard
 
       tor-browser
       discord
@@ -39,6 +46,7 @@
 	  gimp3
 	  tenacity
 	  vlc
+	  veracrypt
       ###
       libreoffice-qt
       hunspell
@@ -57,7 +65,7 @@
     username = "nino";
     homeDirectory = "/home/nino";
 
-    stateVersion = "24.11";
+    stateVersion = "26.05";
   };
 
   xdg.mimeApps = {
