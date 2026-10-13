@@ -1,6 +1,7 @@
 { pkgs, lib, ... }: {
   home.packages = [
     pkgs.opencode
+	pkgs.claude-code
 	# (pkgs.mistral-vibe.overrideAttrs (old: {
     #   nativeCheckInputs = [];
     #   doCheck = false;
