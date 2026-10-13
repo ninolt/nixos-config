@@ -10,7 +10,6 @@
 
     ./dev
 
-	# ./email
     ./joplin
     ./nextcloud.nix
 	./firefox
