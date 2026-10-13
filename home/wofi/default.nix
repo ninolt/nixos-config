@@ -1,5 +1,39 @@
-{ config, pkgs, lib, ...}: {
+{ config, pkgs, lib, ...}:
+let
+  powerAction = pkgs.writeShellApplication {
+    name = "power-action";
+    runtimeInputs = [ pkgs.wofi pkgs.systemd ];
+    text = ''
+      action="$1"
+      case "$action" in
+        poweroff)
+          prompt="Shut down the PC?"
+          cmd="systemctl poweroff"
+          ;;
+        reboot)
+          prompt="Reboot the PC?"
+          cmd="systemctl reboot"
+          ;;
+        logout)
+          prompt="Log out?"
+          cmd="loginctl terminate-session $XDG_SESSION_ID"
+          ;;
+        *)
+          echo "Unknown action: $action" >&2
+          exit 1
+          ;;
+      esac
+
+      choice=$(printf 'No\nYes' | wofi --dmenu --prompt "$prompt")
+      if [ "$choice" = "Yes" ]; then
+        eval "$cmd"
+      fi
+    '';
+  };
+in {
   # Adding some power entries to wofi
+  home.packages = [ powerAction ];
+
   home.file = {
     "${config.home.homeDirectory}/.local/share/icons/logout.png".source = ./logout.png;
     "${config.home.homeDirectory}/.local/share/icons/reboot.png".source = ./reboot.png;
@@ -10,7 +44,7 @@
   xdg.desktopEntries = {
     logout = {
       name = "Logout";
-      exec = ''sh -c "loginctl terminate-session \\$XDG_SESSION_ID"'';
+      exec = "${powerAction}/bin/power-action logout";
       icon = "${config.home.homeDirectory}/.local/share/icons/logout.png";
       terminal = false;
       categories = [ "System" ];
@@ -18,7 +52,7 @@
 
     shutdown = {
       name = "Shutdown";
-      exec = "systemctl poweroff";
+      exec = "${powerAction}/bin/power-action poweroff";
       icon = "${config.home.homeDirectory}/.local/share/icons/shutdown.png";
       terminal = false;
       categories = [ "System" ];
@@ -26,7 +60,7 @@
 
     reboot = {
       name = "Reboot";
-      exec = "systemctl reboot";
+      exec = "${powerAction}/bin/power-action reboot";
       icon = "${config.home.homeDirectory}/.local/share/icons/reboot.png";
       terminal = false;
       categories = [ "System" ];
