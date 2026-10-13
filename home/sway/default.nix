@@ -38,6 +38,7 @@
       blur_radius 4
 
 	  layer_effects "wofi" blur enable;	corner_radius 15
+	  layer_effects "waybar" blur enable
 
       for_window [app_id="discord"] opacity $medium_opacity
       for_window [app_id="@joplin/app-desktop"] opacity $medium_opacity
