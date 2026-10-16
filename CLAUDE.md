@@ -27,8 +27,7 @@ There is no test suite or linter; the only validation is whether `nixos-rebuild 
 
 The flake (`flake.nix`) wires together one `nixosConfigurations.nixos` system from:
 
-- `configuration.nix` — core system config (bootloader, networking, locale/`fr` keyboard, services like `greetd`+`sway`, pipewire, podman, printing, bluetooth, tailscale, kdeconnect firewall ports). Imports `hardware-configuration.nix`, `./dev`, and `system.nix`.
-- `system.nix` — standalone system-level extras unrelated to hardware/boot: agenix secret declarations (`age.secrets`) and a systemd timer that pings an ntfy server (via a VPS domain + token stored as agenix secrets) to nag for a reboot after 3 days of uptime.
+- `configuration.nix` — core system config (bootloader, networking, locale/`fr` keyboard, services like `greetd`+`sway`, pipewire, podman, printing, bluetooth, tailscale, kdeconnect firewall ports). Imports `hardware-configuration.nix` and `./dev`.
 - `dev/` — system-wide dev tooling as NixOS modules (not Home Manager), aggregated via `dev/default.nix`. Add a new language/toolchain by creating `dev/<tool>.nix` and importing it there.
 - `home/` — Home Manager config for user `nino`, entry point `home/home.nix`, which imports one module per concern (`sway/`, `zsh.nix`, `waybar.nix`, `firefox/`, `dev/`, `joplin/`, `nextcloud.nix`, `spotify.nix`, etc.). Each subdirectory is self-contained (its own `default.nix`); flat `.nix` files are single-purpose modules.
   - `home/dev/default.nix` — user-level dev tools: Claude Code, opencode, git (with lfs), Neovim (gruvbox theme, pylsp via `initLua`, nvim-cmp/lspconfig).

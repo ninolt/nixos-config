@@ -6,7 +6,4 @@ let
   systems = [ system ];
 in
 {
-  "vps_domain.age".publicKeys = users ++ systems;
-
-  "ntfy_token.age".publicKeys = users ++ systems;
 }

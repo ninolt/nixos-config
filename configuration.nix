@@ -11,8 +11,6 @@
 
       # Development projects and environment
       ./dev
-
-	  ./system.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
